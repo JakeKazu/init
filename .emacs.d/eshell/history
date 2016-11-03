@@ -1,16 +1,3 @@
-git status
-git diff
-git init
-rm -r .git
-ls
-cd ../
-ls
-cp .emacs.d /init
-cp -r .emacs.d /init
-cp -r .emacs.d ./init
-ls
-cd init
-ls
 cp ./.emacs.d/init.el ./
 ls
 vim
@@ -126,3 +113,16 @@ python test.py
 python test.py 
 python test.py 
 python test.py 
+cd 
+cp .emacs.d
+cp -r .emacs.d init/ 
+cd init
+ls
+cp .emacs.d/init.el ./
+git add .emacs.d init.el
+git commit -m "add emacs"
+git status
+git push -u
+emacs
+ruby test.rb
+ruby test.rb 
