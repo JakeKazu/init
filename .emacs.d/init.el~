@@ -58,10 +58,11 @@
 ;;git-gutter 差分表示
 (require 'git-gutter-fringe)
 (require 'fringe-helper)
+(require 'smartrep)
 (global-git-gutter-mode t)
-;;(smartrep-define-key
-;;    global-map  "C-x" '(("p" . 'git-gutter:previous-hunk)
-;;                        ("n" . 'git-gutter:next-hunk)))
+(smartrep-define-key
+    global-map  "C-x" '(("p" . 'git-gutter:previous-hunk)
+                        ("n" . 'git-gutter:next-hunk)))
 
 ;;自動補完 auto-complete
 ;必須
@@ -102,8 +103,6 @@
                                               compile)
   (mapc 'fringe-helper-remove flymake-fringe-overlays)
   (setq flymake-fringe-overlays nil))
-
-;ruby有効（今はできていない）
 
 ;c/c++有効
 (defun flymake-cc-init ()

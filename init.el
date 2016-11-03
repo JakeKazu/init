@@ -142,9 +142,9 @@
 ;;;;;;文法チェック flymake おわり;;;;;
 
 ;;{とうつと}, "とうつと"のように対応する文字を自動入力
-(electric-pair-mode t)
-(add-to-list 'electric-pair-pairs '(?| . ?|))
-(add-to-list 'electric-layout-rules '(?{ . after)) ;{の後に改行を挿入}
+;;(electric-pair-mode t)
+;;(add-to-list 'electric-pair-pairs '(?| . ?|))
+;;(add-to-list 'electric-layout-rules '(?{ . after)) ;{の後に改行を挿入}
 
 ;;ファイルのフルパスをタイトルバーに表示
 (setq frame-title-format
