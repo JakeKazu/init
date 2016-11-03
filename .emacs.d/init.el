@@ -1,4 +1,4 @@
-;;更新日 2016/05/09
+;;更新日 2016/11/03
 
 ;;;;;;;;;;色についてのセクション;;;;;;;;;;
 ;;基本的な文字, 背景など
@@ -56,31 +56,13 @@
 (define-key evil-insert-state-map [escape] 'evil-normal-state);;ロック中でもescは有効
 
 ;;git-gutter 差分表示
-;;(require 'git-gutter+)
-;;(require 'smartrep)
-;;(setq git-gutter:window-width 2)
-;;(global-git-gutter-mode t)
-;;(smartrep-define-key
-;;    global-map  "C-x" '(("p" . 'git-gutter:previous-hunk)
-;;                        ("n" . 'git-gutter:next-hunk)))
-
-;;org-mode
-;; org-modeの初期化
-(require 'org-install)
-;; キーバインドの設定
-(define-key global-map "\C-cl" 'org-store-link)
-(define-key global-map "\C-ca" 'org-agenda)
-(define-key global-map "\C-cr" 'org-remember)
-;; 拡張子がorgのファイルを開いた時，自動的にorg-modeにする
-(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
-;; org-modeでの強調表示を可能にする
-(add-hook 'org-mode-hook 'turn-on-font-lock)
-;; 見出しの余分な*を消す
-(setq org-hide-leading-stars t)
-;; org-default-notes-fileのディレクトリ
-(setq org-directory "~/org/")
-;; org-default-notes-fileのファイル名
-(setq org-default-notes-file "notes.org")
+(require 'git-gutter-fringe)
+(require 'fringe-helper)
+(require 'smartrep)
+(global-git-gutter-mode t)
+(smartrep-define-key
+    global-map  "C-x" '(("p" . 'git-gutter:previous-hunk)
+                        ("n" . 'git-gutter:next-hunk)))
 
 ;;自動補完 auto-complete
 ;必須
@@ -92,8 +74,6 @@
 ;;;;;;文法チェック flymake;;;;;
 (require 'flymake)
 ;ハイライト色
-(require 'fringe-helper)
-
 (set-face-background 'flymake-errline nil)    ;既存のフェイスを無効にする
 (set-face-foreground 'flymake-errline nil)
 (set-face-background 'flymake-warnline nil)
@@ -123,8 +103,6 @@
                                               compile)
   (mapc 'fringe-helper-remove flymake-fringe-overlays)
   (setq flymake-fringe-overlays nil))
-
-;ruby有効（今はできていない）
 
 ;c/c++有効
 (defun flymake-cc-init ()
@@ -197,11 +175,10 @@
 
 ;;;;;;;;;;各種機能;;;;;;;;;;
 (setq inhibit-startup-screen t) ;スタートメニュー非表示
-;;(scroll-bar-mode 0)
 (setq kill-whole-line t) ;C-kで行全体を削除
 (setq delete-auto-save-files t) ;終了時にオートセーブファイルを消す
-(column-number-mode t) ;何文字目かを表示(モードライン)
 (global-linum-mode) ;;; 行の表示(バッファー)
+(column-number-mode t) ;何文字目かを表示(モードライン)
 (line-number-mode t) ;行の表示(モードライン)
 (scroll-bar-mode 0) ;スクロールバーを消す
 (icomplete-mode t) ;バッファー移動時にミニウィンドウに候補を表示
