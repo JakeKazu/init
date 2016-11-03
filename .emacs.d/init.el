@@ -56,7 +56,13 @@
 (define-key evil-insert-state-map [escape] 'evil-normal-state);;ロック中でもescは有効
 
 ;;git-gutter 差分表示
-(global-git-gutter-mode t)
+;;(require 'git-gutter+)
+;;(require 'smartrep)
+;;(setq git-gutter:window-width 2)
+;;(global-git-gutter-mode t)
+;;(smartrep-define-key
+;;    global-map  "C-x" '(("p" . 'git-gutter:previous-hunk)
+;;                        ("n" . 'git-gutter:next-hunk)))
 
 ;;org-mode
 ;; org-modeの初期化
@@ -194,9 +200,9 @@
 ;;(scroll-bar-mode 0)
 (setq kill-whole-line t) ;C-kで行全体を削除
 (setq delete-auto-save-files t) ;終了時にオートセーブファイルを消す
+(column-number-mode t) ;何文字目かを表示(モードライン)
 (global-linum-mode) ;;; 行の表示(バッファー)
 (line-number-mode t) ;行の表示(モードライン)
-(column-number-mode t) ;何文字目かを表示(モードライン)
 (scroll-bar-mode 0) ;スクロールバーを消す
 (icomplete-mode t) ;バッファー移動時にミニウィンドウに候補を表示
 (set-frame-parameter nil 'alpha 85)
