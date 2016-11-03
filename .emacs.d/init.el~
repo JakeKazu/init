@@ -52,6 +52,11 @@
 ;;evil emacsをvimのごとく使う
 (require 'evil)
 (evil-mode 1)
+(setcdr evil-insert-state-map nil) ;;insertモード中はevilはロック
+;;(define-key evil-insert-state-map [escape] 'evil-normal-state);;ロック中でもescは有効
+
+;;git-gutter 差分表示
+(global-git-gutter-mode t)
 
 ;;org-mode
 ;; org-modeの初期化
@@ -153,9 +158,9 @@
 ;;;;;;文法チェック flymake おわり;;;;;
 
 ;;{とうつと}, "とうつと"のように対応する文字を自動入力
-;;(electric-pair-mode t)
-;;(add-to-list 'electric-pair-pairs '(?| . ?|))
-;;(add-to-list 'electric-layout-rules '(?{ . after)) ;{の後に改行を挿入}
+(electric-pair-mode t)
+(add-to-list 'electric-pair-pairs '(?| . ?|))
+(add-to-list 'electric-layout-rules '(?{ . after)) ;{の後に改行を挿入}
 
 ;;ファイルのフルパスをタイトルバーに表示
 (setq frame-title-format

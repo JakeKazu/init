@@ -52,6 +52,11 @@
 ;;evil emacsをvimのごとく使う
 (require 'evil)
 (evil-mode 1)
+(setcdr evil-insert-state-map nil) ;;insertモード中はevilはロック
+(define-key evil-insert-state-map [escape] 'evil-normal-state);;ロック中でもescは有効
+
+;;git-gutter 差分表示
+(global-git-gutter-mode t)
 
 ;;org-mode
 ;; org-modeの初期化
