@@ -48,12 +48,17 @@
 (add-to-list 'package-archives '("melpa"."http://melpa.milkbox.net/packages/") t)
 (add-to-list 'package-archives '("marmalade"."http://marmalade-repo.org/packages/"))
 (package-initialize)
+;;load-path
+(add-to-list 'load-path "~/.emacs.d/install")
 
 ;;evil emacsをvimのごとく使う
 (require 'evil)
 (evil-mode 1)
 (setcdr evil-insert-state-map nil) ;;insertモード中はevilはロック
 (define-key evil-insert-state-map [escape] 'evil-normal-state);;ロック中でもescは有効
+;;以下、２つは不具合があるため、一番下に記述
+;;(require 'mode-line-color)
+;;(require 'evil-mode-line)
 
 ;;git-gutter 差分表示
 (require 'git-gutter-fringe)
@@ -238,6 +243,14 @@
 ;;browse-kill-ring
 (require 'browse-kill-ring)
 (define-key ctl-x-map "\C-y" 'browse-kill-ring)
+
+;;C-x,C-c,C-v
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
 
 ;;ステートをモードラインに
 (eval-when-compile (require 'cl))
@@ -450,10 +463,3 @@ We have our own \"--\" put by `evil-mode-line-state-msg-format'."
 (provide 'evil-mode-line)
 ;;; evil-mode-line.el ends here
 
-;;C-x,C-c,C-v
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
