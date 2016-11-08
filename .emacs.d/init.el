@@ -1,4 +1,4 @@
-;;更新日 2016/11/03
+;;更新日 2016/11/08
 
 ;;;;;;;;;;色についてのセクション;;;;;;;;;;
 ;;基本的な文字, 背景など
@@ -228,6 +228,27 @@
    (let ((face (intern (format "rainbow-delimiters-depth-%d-face" index))))
     (cl-callf color-saturate-name (face-foreground face) 30))))
 (add-hook 'emacs-startup-hook 'rainbow-delimiters-using-stronger-colors)
+
+
+;; キーボード入力の文字コード
+(set-keyboard-coding-system 'utf-8-unix)
+;; サブプロセスのデフォルト文字コード
+(setq default-process-coding-system '(undecided-dos . utf-8-unix))
+;; 環境依存文字 文字化け対応
+(set-charset-priority 'ascii 'japanese-jisx0208 'latin-jisx0201
+                      'katakana-jisx0201 'iso-8859-1 'cp1252 'unicode)
+(set-coding-system-priority 'utf-8 'euc-jp 'iso-2022-jp 'cp932)
+
+;; フォントサイズ調整
+(global-set-key (kbd "C-<wheel-up>")   '(lambda() (interactive) (text-scale-increase 1)))
+(global-set-key (kbd "C-=")            '(lambda() (interactive) (text-scale-increase 1)))
+(global-set-key (kbd "C-<wheel-down>") '(lambda() (interactive) (text-scale-decrease 1)))
+(global-set-key (kbd "C--")            '(lambda() (interactive) (text-scale-decrease 1)))
+;; フォントサイズ リセット
+(global-set-key (kbd "M-0") '(lambda() (interactive) (text-scale-set 0)))
+
+;; フルスクリーン化
+(global-set-key (kbd "<M-return>") 'toggle-frame-fullscreen)
 
 ;;;;;;;;;;各種機能;;;;;;;;;;
 (setq inhibit-startup-screen t) ;スタートメニュー非表示
