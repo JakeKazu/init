@@ -502,3 +502,4 @@ We have our own \"--\" put by `evil-mode-line-state-msg-format'."
 (provide 'evil-mode-line)
 ;;; evil-mode-line.el ends here
 
+(put 'upcase-region 'disabled nil)

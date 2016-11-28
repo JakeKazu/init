@@ -69,6 +69,9 @@
     global-map  "C-x" '(("p" . 'git-gutter:previous-hunk)
                         ("n" . 'git-gutter:next-hunk)))
 
+;;magit -emacsでgitを使う-
+(require 'magit)
+
 ;;Latex
 ;;yatex
 (require 'yatex)
