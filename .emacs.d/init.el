@@ -69,6 +69,25 @@
     global-map  "C-x" '(("p" . 'git-gutter:previous-hunk)
                         ("n" . 'git-gutter:next-hunk)))
 
+;;Latex
+;;yatex
+(require 'yatex)
+(autoload 'yatex-mode "yatex" "Yet Another LaTeX mode" t)
+(setq auto-mode-alist
+      (append '(("\\.tex$" . yatex-mode)
+        ("\\.ltx$" . yatex-mode)
+        ("\\.sty$" . yatex-mode)) auto-mode-alist))
+;; set YaTeX coding system
+(setq YaTeX-kanji-code 4) ; UTF-8 の設定
+(add-hook 'yatex-mode-hook
+      '(lambda ()
+         (setq YaTeX-use-AMS-LaTeX t) ; align で数式モードになる
+         (setq YaTeX-use-hilit19 nil
+           YateX-use-font-lock t)
+         (setq tex-command "em-latexmk.sh") ; typeset command
+         (setq dvi2-command "evince") ; preview command
+         (setq tex-pdfview-command "xdg-open"))) ; preview command
+
 ;;自動補完 auto-complete
 ;必須
 (require 'auto-complete-config)
@@ -173,7 +192,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
- '(cua-mode t nil (cua-base))
  '(display-time-mode t)
  '(py-indent-offset 4)
  '(show-paren-mode t))
@@ -484,3 +502,4 @@ We have our own \"--\" put by `evil-mode-line-state-msg-format'."
 (provide 'evil-mode-line)
 ;;; evil-mode-line.el ends here
 
+(put 'upcase-region 'disabled nil)

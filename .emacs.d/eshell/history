@@ -1,15 +1,3 @@
-cp ./.emacs.d/init.el ./
-ls
-vim
-vim
-cp -r ../.emacs.d ./
-cp .emacs.d/init.el ./
-ls
-git add init.el .emacs.d
-ls
-git commit -m "add emacs"
-git push -u
-ls
 gcc hello.c 
 ./a.out 
 gcc hello.c 
@@ -126,3 +114,15 @@ git push -u
 emacs
 ruby test.rb
 ruby test.rb 
+gcc b11.c
+./a.out
+cd
+ls
+cd 計算機工学実験\ /
+ls
+cd 課題２/
+ls
+gcc b11.c 
+./a.out 
+ls
+platex b1.tex
