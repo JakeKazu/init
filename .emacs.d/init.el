@@ -56,6 +56,16 @@
 (evil-mode 1)
 (setcdr evil-insert-state-map nil) ;;insertモード中はevilはロック
 (define-key evil-insert-state-map [escape] 'evil-normal-state);;ロック中でもescは有効
+;C-qをescに
+(defun evil-escape-or-quit (&optional prompt)
+  (interactive)
+  (cond
+   ((or (evil-normal-state-p) (evil-insert-state-p) (evil-visual-state-p)
+        (evil-replace-state-p) (evil-visual-state-p)) [escape])
+   (t (kbd "C-g"))))
+(define-key key-translation-map (kbd "C-q") #'evil-escape-or-quit)
+(define-key evil-operator-state-map (kbd "C-q") #'evil-escape-or-quit)
+(define-key evil-normal-state-map [escape] #'keyboard-quit)
 ;;以下、２つは不具合があるため、一番下に記述
 ;;(require 'mode-line-color)
 ;;(require 'evil-mode-line)
@@ -87,9 +97,10 @@
          (setq YaTeX-use-AMS-LaTeX t) ; align で数式モードになる
          (setq YaTeX-use-hilit19 nil
            YateX-use-font-lock t)
-         (setq tex-command "em-latexmk.sh") ; typeset command
+         ; (setq tex-command "em-latexmk.sh") ; typeset command
          (setq dvi2-command "evince") ; preview command
-         (setq tex-pdfview-command "xdg-open"))) ; preview command
+         ;(setq tex-pdfview-command "xdg-open")
+	 )) ; preview command
 
 ;;自動補完 auto-complete
 ;必須
@@ -161,26 +172,25 @@
 
 ;;ruby
 ;; Invoke ruby with '-c' to get syntax checking
-(defun flymake-ruby-init ()
-  (let* ((temp-file   (flymake-init-create-temp-buffer-copy
-                       'flymake-create-temp-inplace))
-	 (local-file  (file-relative-name
-                       temp-file
-                       (file-name-directory buffer-file-name))))
-    (list "ruby" (list "-c" local-file))))
+;(defun flymake-ruby-init ()
+;  (let* ((temp-file   (flymake-init-create-temp-buffer-copy                       'flymake-create-temp-inplace))
+;	 (local-file  (file-relative-name
+;                       temp-file
+;                       (file-name-directory buffer-file-name))))
+;    (list "ruby" (list "-c" local-file))))
 
-(push '(".+\\.rb$" flymake-ruby-init) flymake-allowed-file-name-masks)
-(push '("Rakefile$" flymake-ruby-init) flymake-allowed-file-name-masks)
+;(push '(".+\\.rb$" flymake-ruby-init) flymake-allowed-file-name-masks)
+;(push '("Rakefile$" flymake-ruby-init) flymake-allowed-file-name-masks)
 
-(push '("^\\(.*\\):\\([0-9]+\\): \\(.*\\)$" 1 2 nil 3) flymake-err-line-patterns)
+;(push '("^\\(.*\\):\\([0-9]+\\): \\(.*\\)$" 1 2 nil 3) flymake-err-line-patterns)
 
-(add-hook 'ruby-mode-hook
-          '(lambda ()
+;(add-hook 'ruby-mode-hook
+;          '(lambda ()
 
 	     ;; Don't want flymake mode for ruby regions in rhtml files and also on read only files
-	     (if (and (not (null buffer-file-name)) (file-writable-p buffer-file-name))
-		 (flymake-mode))
-	     ))
+;	     (if (and (not (null buffer-file-name)) (file-writable-p buffer-file-name))
+;		 (flymake-mode))
+;	     ))
 
 ;;python-python-pyflakes
 ; pipのインストール
