@@ -97,9 +97,10 @@
          (setq YaTeX-use-AMS-LaTeX t) ; align で数式モードになる
          (setq YaTeX-use-hilit19 nil
            YateX-use-font-lock t)
-         (setq tex-command "em-latexmk.sh") ; typeset command
+         ; (setq tex-command "em-latexmk.sh") ; typeset command
          (setq dvi2-command "evince") ; preview command
-         (setq tex-pdfview-command "xdg-open"))) ; preview command
+         ;(setq tex-pdfview-command "xdg-open")
+	 )) ; preview command
 
 ;;自動補完 auto-complete
 ;必須
