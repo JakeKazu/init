@@ -1,0 +1,17 @@
+(provide 'set-flycheck)
+
+(require 'flycheck)
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
+;;キーバインド
+;(define-key elpy-mode-map (kbd "C-c C-v") 'helm-flycheck)
+;(require 'smartrep)
+;(smartrep-define-key elpy-mode-map "C-c"
+;  '(("C-n" . flycheck-next-error)
+;    ("C-p" . flycheck-previous-error)))
+
+;;エラー文を文字の下に表示する flycheck-pos-tip
+(require 'flycheck-pos-tip)
+(eval-after-load 'flycheck
+  '(custom-set-variables
+   '(flycheck-display-errors-function #'flycheck-pos-tip-error-messages)))
