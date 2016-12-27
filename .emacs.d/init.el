@@ -16,6 +16,9 @@
 ;;evil emacsをvimのごとく使う
 (require 'set-evil)
 
+;;helm
+(require 'set-helm)
+
 ;;git-gutter 差分表示
 (require 'git-gutter-fringe)
 (require 'fringe-helper)
@@ -60,7 +63,7 @@
          ; (setq tex-command "em-latexmk.sh") ; typeset command
          (setq dvi2-command "evince") ; preview command
          ;(setq tex-pdfview-command "xdg-open")
-	 )) ; preview command
+ )) ; preview command
 
 ;;自動補完
 (require 'set-company)
@@ -68,6 +71,9 @@
 ;;文法チェック
 (require 'set-flycheck)
 ;(require 'set-flymake)
+
+;;ruby設定
+(require 'set-ruby)
 
 ;;括弧の設定
 (require 'set-brackets)

@@ -16,6 +16,8 @@
        (flycheck-irony-setup))))
 
 ;;ruby rubocop
+(require 'rubocop)
+(add-hook 'ruby-mode-hook 'rubocop-mode)
 (flycheck-define-checker ruby-rubocop
   "A Ruby syntax and style checker using the RuboCop tool."
   :command ("rubocop" "--format" "emacs" "--silent"
@@ -28,4 +30,5 @@
    (error line-start
           (file-name) ":" line ":" column ": " (or "E" "F") ": " (message)
           line-end))
-   :modes (enh-ruby-mode motion-mode))
+  :modes (enh-ruby-mode motion-mode))
+

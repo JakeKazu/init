@@ -2,19 +2,24 @@
 
 ;; ;;自動補完 auto-complete
 ;必須'
-(require 'auto-complete-config)
-(ac-config-default)
+;(require 'auto-complete-config)
+;(ac-config-default)
 ;その他
-(setq ac-use-menu-map t)
+;(setq ac-use-menu-map t)
 
 ;; ;;;;;;自動補完 company;;;;;;
 (require 'company)
-;;(global-company-mode) ; 全バッファで有効にする 
+(global-company-mode) ; 全バッファで有効にする 
 (setq company-idle-delay 0) ; デフォルトは0.5 nilにするとcompany無効
 (setq company-minimum-prefix-length 2) ; デフォルトは4
 (setq company-selection-wrap-around t) ; 候補の一番下でさらに下に行こうとすると一番上に戻る
 ;; 特定のmodeだけでcompany-modeを有効にしたいときは，(global-company-mode)を消して
-(add-hook 'c++-mode-hook 'company-mode)
+;(add-hook 'c++-mode-hook 'company-mode)
+;(add-hook 'python-mode-hook 'company-mode)
+
+;rubyはauto-completeを使う ruby-mode無効
+;(custom-set-variables
+; '(company-global-modes '(not ruby-mode)))
 
 ;; tabの設定
 (defun company--insert-candidate2 (candidate)
@@ -106,6 +111,17 @@
 
 ;; cmakeの設定が終わっていないと面倒 参照:http://qiita.com/alpha22jp/items/90f7f2ad4f8b1fa089f4
 
+;;python company-jedi
+(require 'jedi-core)
+(setq jedi:complete-on-dot t)
+;(setq jedi:use-shortcuts t)
+(add-hook 'python-mode-hook 'jedi:setup)
+(add-to-list 'company-backends 'company-jedi) ; backendに追加
+;; 使い方
+;; pip install jedi epc
+;; 初回実行時のみ，
+;; M-x irony-install-server RET
+
+;;rubyはrubyの設定で行う
 
 ;;;;;;自動補完 company 終わり;;;;;;
-
