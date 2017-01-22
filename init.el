@@ -29,7 +29,7 @@
                         ("n" . 'git-gutter:next-hunk)))
 
 ;;magit -emacsでgitを使う-
-(require 'magit)
+;(require 'magit)
 
 ;;web-mode
 (require 'web-mode)

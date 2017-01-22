@@ -16,6 +16,9 @@
 ;;evil emacsをvimのごとく使う
 (require 'set-evil)
 
+;;helm
+(require 'set-helm)
+
 ;;git-gutter 差分表示
 (require 'git-gutter-fringe)
 (require 'fringe-helper)
