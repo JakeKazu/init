@@ -70,7 +70,7 @@
 
 ;;文法チェック
 (require 'set-flycheck)
-;(require 'set-flymake)
+(require 'set-flymake)
 
 ;;ruby設定
 (require 'set-ruby)
@@ -79,6 +79,7 @@
 (require 'set-brackets)
 
 ;;;;;;;;;;各種機能;;;;;;;;;;
+;;他の環境で使用するとmozcの設定でエラー出る可能性あり
 (require 'set-else)
 
 ;;C-x,C-c,C-v
@@ -88,3 +89,12 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(flycheck-display-errors-function (function flycheck-pos-tip-error-messages))
+ '(package-selected-packages
+   (quote
+    (flycheck-mypy yatex web-mode twittering-mode smartrep ruby-test-mode ruby-electric ruby-block rubocop robe rainbow-mode rainbow-delimiters python-mode pyflakes projectile magit helm git-gutter-fringe git-gutter-fringe+ flymake-ruby flymake-python-pyflakes flymake flycheck-pos-tip flycheck-irony flx evil enh-ruby-mode elpy company-jedi company-irony company-inf-ruby browse-kill-ring auto-complete))))
