@@ -1,11 +1,5 @@
 ;;更新日 2016/12/25
 
-
-
-
-
-
-
 ;;Emacs24のパッケージ管理機能 M-x package-list-packages
 (require 'package)
 (add-to-list 'package-archives '("melpa"."http://melpa.milkbox.net/packages/") t)
@@ -14,7 +8,6 @@
 ;;load-path
 (add-to-list 'load-path "~/.emacs.d/install")
 (add-to-list 'load-path "~/.emacs.d/install/original")
-(add-to-list 'load-path "~/.emacs.d/install/flycheck-tex-latex")
 (add-to-list 'load-path "~/.emacs.d/install/mode-line")
 
 ;;色についてのセクション
