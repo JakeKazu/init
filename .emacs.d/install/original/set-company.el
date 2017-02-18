@@ -1,12 +1,5 @@
 (provide 'set-company)
 
-;; ;;自動補完 auto-complete
-;必須'
-;(require 'auto-complete-config)
-;(ac-config-default)
-;その他
-;(setq ac-use-menu-map t)
-
 ;; ;;;;;;自動補完 company;;;;;;
 (require 'company)
 (global-company-mode) ; 全バッファで有効にする 

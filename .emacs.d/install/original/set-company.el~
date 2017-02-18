@@ -17,11 +17,9 @@
 ;(add-hook 'c++-mode-hook 'company-mode)
 ;(add-hook 'python-mode-hook 'company-mode)
 
-;rubyとlispはauto-completeを使う
-(custom-set-variables
- '(company-global-modes '(not ruby-mode)))
-(custom-set-variables
- '(company-global-modes '(not emacs-lisp-mode)))
+;rubyはauto-completeを使う ruby-mode無効
+;(custom-set-variables
+; '(company-global-modes '(not ruby-mode)))
 
 ;; tabの設定
 (defun company--insert-candidate2 (candidate)
