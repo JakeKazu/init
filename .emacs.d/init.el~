@@ -70,6 +70,7 @@
  )) ; preview command
 
 ;;自動補完
+;(require 'set-auto-compelte)
 (require 'set-company)
 
 ;;文法チェック

@@ -9,7 +9,6 @@
 (add-to-list 'load-path "~/.emacs.d/install")
 (add-to-list 'load-path "~/.emacs.d/install/original")
 (add-to-list 'load-path "~/.emacs.d/install/mode-line")
-(add-to-list 'load-path "~/.emacs.d/install/initchart")
 
 ;;パッケージごとの起動時間チェック
 (require 'set-initchart)
