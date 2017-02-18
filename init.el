@@ -73,7 +73,6 @@
 ;(require 'set-auto-compelte)
 (require 'set-company)
 
-
 ;;文法チェック
 (require 'set-flycheck)
 (require 'set-flymake)
