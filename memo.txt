@@ -31,3 +31,8 @@ yatex（やてふ）
 　C-c t p :evince
   C-c b v :\begin{verbatim} \end{verbatim}挿入。その他にもいろいろある。調べて
   C-c s :\subsection 等が挿入できる。
+
+helm 検索できる機能
+　C-c C-f ファイル作成で使うけど、ファイル検索もできる。方向キー右、左でフォルダ移動。エンターでファイル決定。
+  C-c C-r 最近、編集したファイルの一覧
+  M-x コマンド検索機能も付属
