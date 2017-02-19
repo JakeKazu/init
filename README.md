@@ -1,4 +1,4 @@
-コンパイルまでの流れ（例）
+*コンパイルまでの流れ（例）*
 
  端末で $emacs &
 
@@ -22,14 +22,14 @@
 
  C-x C-c emacs終了
 
-これを覚えておけばどうにかなる。
+*これを覚えておけばどうにかなる。*
 
-その他キーバインド集
+*その他キーバインド集*
 
 http://www.aise.ics.saitama-u.ac.jp/~gotoh/EmacsKeybind.html
 
 
-よく使うemacsのコマンド M-x　コマンド名
+*よく使うemacsのコマンド M-x　コマンド名*
 
  version :emacsのバージョンを調べる(コマンドプロンプトで$emacs -versionするのと同じ)
 
@@ -42,7 +42,7 @@ http://www.aise.ics.saitama-u.ac.jp/~gotoh/EmacsKeybind.html
  initchart-visualize-init-sequence :起動するまで時間の表を作成 保存場所を聞かれるので、~/initchart.svgとかで保存する
 
 
-yatex（やてふ）
+*yatex（やてふ）*
 
  .tex ファイルは自動でやてふモードになる
 
