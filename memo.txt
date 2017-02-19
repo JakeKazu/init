@@ -49,3 +49,6 @@ flymake,flycheck　文法チェック
 
 git-gutter
 　gitの差分を +や- で表現してくれる
+
+evil
+　vimの機能を提供してくれるパッケージ
