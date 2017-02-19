@@ -29,4 +29,5 @@ yatex（やてふ）
 　C-c t j :platex　を実行
 　C-c t d :platex と dvipdfmx を実行
 　C-c t p :evince
- 
+  C-c b v :\begin{verbatim} \end{verbatim}挿入。その他にもいろいろある。調べて
+  C-c s :\subsection 等が挿入できる。
