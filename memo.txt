@@ -21,7 +21,8 @@ http://www.aise.ics.saitama-u.ac.jp/~gotoh/EmacsKeybind.html
 　eshell :emacs版コマンドプロンプト的な
 　count-lines-regions :文字カウント
 　set-alpha :エディタの透明度変更
-　initchart-visualize-init-sequence :起動するまで時間の表を作成 保存場所を聞かれるので、~/initchart.svgとかで保存する
+　initchart-visualize-init-sequence :起動するまで時間の表を作成 保存場所を聞かれるので、~/initchart.svgとかで保存する。そして、.svgファイルをブラウザで表示させる。
+　initchart.svgはJakeKazuのemacsでは.emacs.dフォルダに入っている
 
 
 yatex（やてふ）
@@ -36,6 +37,7 @@ helm 検索できる機能
 　C-c C-f ファイル作成で使うけど、ファイル検索もできる。方向キー右、左でフォルダ移動。エンターでファイル決定。
   C-c C-r 最近、編集したファイルの一覧
   M-x コマンド検索機能も付属
+  Esc ３回で機能を終了することができる
 
 company 自動補完
 　一度入力した文字を覚えてたりする。とても便利。
