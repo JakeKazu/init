@@ -44,3 +44,6 @@ company 自動補完
 
 flymake,flycheck　文法チェック
 　C/C++,java,Ruby,python（pythonは設定しないと使えないはず）
+
+git-gutter
+　gitの差分を +や- で表現してくれる
