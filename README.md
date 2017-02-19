@@ -50,5 +50,5 @@ yatex（やてふ）
 
  C-c t d :platex と dvipdfmx を実行
 
- C-c t p :evince
+ *C-c t p :evince
  
