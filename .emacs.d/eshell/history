@@ -1,11 +1,3 @@
-git config --global color.ui true
-ls
-mkdir hello
-ls
-git init
-git config --global user.email 'kaza9322@gmail.com'
-git config --global user.name 'JakeKazu'
-git config --global color.ui true
 git status
 git add hello
 ls
@@ -126,3 +118,11 @@ cd .emacs.d
 ls
 cd elpa
 ls
+ruby marubatu.rb 
+ruby marubatu.rb 
+ruby marubatu.rb 
+ruby marubatu.rb 
+ruby marubatu.rb 
+clear
+
+
