@@ -11,6 +11,24 @@
   (interactive "nAlpha: ")
   (set-frame-parameter nil 'alpha (cons alpha-num '(85))))
 
+;;
+;; whitespace
+;;
+(require 'whitespace)
+(setq whitespace-style '(face           ; faceで可視化
+                         trailing       ; 行末
+                         tabs           ; タブ
+;;                         empty          ; 先頭/末尾の空行
+                         space-mark     ; 表示のマッピング
+                         tab-mark
+                         ))
+
+(setq whitespace-display-mappings
+      '((tab-mark ?\t [?\u00BB ?\t] [?\\ ?\t])))
+
+(global-whitespace-mode 1)
+
+
 ;;タブと全角スペース、行末の半角スペースの可視化
 (defface my-face-b-1 '((t (:background "NavajoWhite4"))) nil) ; 全角スペース
 (defface my-face-b-2 '((t (:background "gray10"))) nil) ; タブ

@@ -27,6 +27,9 @@
   :config
   (add-hook 'go-mode-hook 'go-eldoc-setup))
 
+;;save-gofmt
+(add-hook 'before-save-hook 'gofmt-before-save)
+
 ;;; helm-doc
 (defvar my/helm-go-source
   '((name . "Helm Go")
