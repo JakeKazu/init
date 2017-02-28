@@ -1,5 +1,9 @@
 (provide 'set-go)
 
+;; go get github.com/rogpeppe/godef
+;; go get -u github.com/nsf/gocode
+;; go get github.com/golang/lint/golint
+;; go get github.com/kisielk/errcheck
 
 (require 'go-mode)
 (require 'go-eldoc)
@@ -15,8 +19,8 @@
   (bind-keys :map go-mode-map
          ("M-." . godef-jump)
          ("M-," . pop-tag-mark))
-  (add-hook 'go-mode-hook '(lambda () (setq tab-width 2)))
-  ;(setq gofmt-command "goimports") import 自動追加
+  ;(add-hook 'go-mode-hook '(lambda () (setq tab-width 2)))
+  (setq gofmt-command "goimports") ;import 自動追加
   (add-hook 'before-save-hook 'gofmt-before-save))
 ;;go-eldoc
 (use-package go-eldoc
@@ -40,12 +44,20 @@
 
 (define-key go-mode-map (kbd "C-c C-d") 'my/helm-go)
 
-;;auto-complete
-(require 'go-autocomplete)
-(require 'auto-complete-config)
-(eval-after-load "go-mode"
-  '(progn
-     (require 'go-autocomplete)))
+;; flycheck & company-go
+(require 'company-go)
 
-;;flycheck
+;; 諸々の有効化、設定
+(add-hook 'go-mode-hook 'company-mode)
 (add-hook 'go-mode-hook 'flycheck-mode)
+(add-hook 'go-mode-hook (lambda()
+           (add-hook 'before-save-hook' 'gofmt-before-save)
+           (local-set-key (kbd "M-.") 'godef-jump)
+           (set (make-local-variable 'company-backends) '(company-go))
+           (company-mode)
+           (setq indent-tabs-mode nil)    ; タブを利用
+           (setq c-basic-offset 4)        ; tabサイズを4にする
+           (setq tab-width 4)))
+
+(require 'go-direx) ;; Don't need to require, if you install by package.el
+(define-key go-mode-map (kbd "C-c C-j") 'go-direx-pop-to-buffer)

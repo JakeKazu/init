@@ -13,9 +13,6 @@
 (setq display-time-kawakami-form t)
 (setq display-time-24hr-format t)
 
-;; タブの無効化
-(setq-default indent-tabs-mode nil)
-
 ;; キーボード入力の文字コード
 (set-keyboard-coding-system 'utf-8-unix)
 ;; サブプロセスのデフォルト文字コード

@@ -8,10 +8,10 @@
 (require 'go-mode)
 (require 'go-eldoc)
 
-"PATHの設定"
 ;;各自設定する
-(setenv "GOPATH" "/home/jake/.go")
-(add-to-list 'exec-path (expand-file-name "/usr/bin/go"))
+(require 'exec-path-from-shell)
+(let ((envs '("PATH" "GOPATH")))
+  (exec-path-from-shell-copy-envs envs))
 
 ::go-mode
 (use-package go-mode
