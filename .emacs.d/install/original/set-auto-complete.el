@@ -4,5 +4,3 @@
 ;;必須'
 (require 'auto-complete-config)
 (ac-config-default)
-その他
-(setq ac-use-menu-map t)

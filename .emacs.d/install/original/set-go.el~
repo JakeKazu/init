@@ -1,0 +1,51 @@
+(provide 'set-go)
+
+
+(require 'go-mode)
+(require 'go-eldoc)
+
+"PATHの設定"
+;;各自設定する
+(setenv "GOPATH" "/home/jake/.go")
+(add-to-list 'exec-path (expand-file-name "/usr/bin/go"))
+
+::go-mode
+(use-package go-mode
+  :config
+  (bind-keys :map go-mode-map
+         ("M-." . godef-jump)
+         ("M-," . pop-tag-mark))
+  (add-hook 'go-mode-hook '(lambda () (setq tab-width 2)))
+  ;(setq gofmt-command "goimports") import 自動追加
+  (add-hook 'before-save-hook 'gofmt-before-save))
+;;go-eldoc
+(use-package go-eldoc
+  :config
+  (add-hook 'go-mode-hook 'go-eldoc-setup))
+
+;;; helm-doc
+(defvar my/helm-go-source
+  '((name . "Helm Go")
+    (candidates . go-packages)
+    (action . (("Show document" . godoc)
+               ("Import package" . my/helm-go-import-add)))))
+
+(defun my/helm-go-import-add (candidate)
+  (dolist (package (helm-marked-candidates))
+    (go-import-add current-prefix-arg package)))
+
+(defun my/helm-go ()
+  (interactive)
+  (helm :sources '(my/helm-go-source) :buffer "*helm go*"))
+
+(define-key go-mode-map (kbd "C-c C-d") 'my/helm-go)
+
+;;auto-complete
+(require 'go-autocomplete)
+(require 'auto-complete-config)
+(eval-after-load "go-mode"
+  '(progn
+     (require 'go-autocomplete)))
+
+;;flycheck
+(add-hook 'go-mode-hook 'flycheck-mode)

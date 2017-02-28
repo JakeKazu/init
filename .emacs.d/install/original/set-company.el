@@ -13,6 +13,9 @@
 ;rubyはauto-completeを使う ruby-mode無効
 ;(custom-set-variables
 ; '(company-global-modes '(not ruby-mode)))
+;goはauto-completeを使う
+;; (custom-set-variables
+;; '(company-global-modes '(not go-mode)))
 
 ;; tabの設定
 (defun company--insert-candidate2 (candidate)
@@ -114,6 +117,8 @@
 ;; pip install jedi epc
 ;; 初回実行時のみ，
 ;; M-x irony-install-server RET
+
+;;goはgoの設定で行う
 
 ;;rubyはrubyの設定で行う
 

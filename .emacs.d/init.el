@@ -10,6 +10,9 @@
 (add-to-list 'load-path "~/.emacs.d/install/original")
 (add-to-list 'load-path "~/.emacs.d/install/mode-line")
 
+;;use-package
+(require 'use-package)
+
 ;;パッケージごとの起動時間チェック
 (require 'set-initchart)
 
@@ -78,6 +81,10 @@
 
 ;;ruby設定
 (require 'set-ruby)
+
+
+;;go設定
+(require 'set-go)
 
 ;;括弧の設定
 (require 'set-brackets)
