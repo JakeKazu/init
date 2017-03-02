@@ -25,6 +25,9 @@
 ;;helm
 (require 'set-helm)
 
+;;tabbar
+(require 'tabbar)
+
 ;;git-gutter 差分表示
 (require 'git-gutter-fringe)
 (require 'fringe-helper)
@@ -72,7 +75,7 @@
  )) ; preview command
 
 ;;自動補完
-(require 'set-auto-compelte)
+;(require 'set-auto-compelte)
 (require 'set-company)
 
 ;;文法チェック

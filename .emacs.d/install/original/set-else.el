@@ -16,7 +16,6 @@
 ;; タブの無効化
 (setq-default indent-tabs-mode nil)
 
-
 ;; キーボード入力の文字コード
 (set-keyboard-coding-system 'utf-8-unix)
 ;; サブプロセスのデフォルト文字コード
@@ -37,8 +36,17 @@
 ;; フルスクリーン化
 (global-set-key (kbd "<M-return>") 'toggle-frame-fullscreen)
 
+;; 最近使ったファイルの表示数
+(setq recentf-max-menu-items 10)
+;; 最近開いたファイルの保存数を増やす
+(setq recentf-max-saved-items 3000)
+
+
 ;;その他
 (setq inhibit-startup-screen t) ;スタートメニュー非表示
+(menu-bar-mode -1) ;; メニューバーを非表示
+;; (tool-bar-mode -1) ;; ツールバー非表示
+(setq initial-scratch-message "");; scratchの初期メッセージ消去
 (setq kill-whole-line t) ;C-kで行全体を削除
 (setq delete-auto-save-files t) ;終了時にオートセーブファイルを消す
 (global-linum-mode) ;;; 行の表示(バッファー)
