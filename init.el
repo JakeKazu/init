@@ -25,6 +25,12 @@
 ;;helm
 (require 'set-helm)
 
+;;tabbar
+(require 'set-tabbar)
+
+;;minimap M-x minimap-mode
+(require 'minimap)
+
 ;;git-gutter 差分表示
 (require 'git-gutter-fringe)
 (require 'fringe-helper)
