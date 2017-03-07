@@ -41,8 +41,11 @@
 ;; 最近開いたファイルの保存数を増やす
 (setq recentf-max-saved-items 3000)
 
+;; *.~ とかのバックアップファイルを作らない
+(setq make-backup-files nil)
+;; .#* とかのバックアップファイルを作らない
+(setq auto-save-default nil)
 
-;;その他
 (setq inhibit-startup-screen t) ;スタートメニュー非表示
 (menu-bar-mode -1) ;; メニューバーを非表示
 ;; (tool-bar-mode -1) ;; ツールバー非表示
