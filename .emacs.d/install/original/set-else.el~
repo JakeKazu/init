@@ -36,32 +36,16 @@
 ;; フルスクリーン化
 (global-set-key (kbd "<M-return>") 'toggle-frame-fullscreen)
 
-;; 最近使ったファイルの表示数
-(setq recentf-max-menu-items 10)
-;; 最近開いたファイルの保存数を増やす
-(setq recentf-max-saved-items 3000)
-
-;; *.~ とかのバックアップファイルを作らない
-(setq make-backup-files nil)
-;; .#* とかのバックアップファイルを作らない
-(setq auto-save-default nil)
-
+;;その他
 (setq inhibit-startup-screen t) ;スタートメニュー非表示
 (menu-bar-mode -1) ;; メニューバーを非表示
-;; (tool-bar-mode -1) ;; ツールバー非表示
 (setq initial-scratch-message "");; scratchの初期メッセージ消去
 (setq kill-whole-line t) ;C-kで行全体を削除
 (setq delete-auto-save-files t) ;終了時にオートセーブファイルを消す
-
 (global-linum-mode) ;;; 行の表示(バッファー)
-;;行の表示を少し軽くする
-(setq linum-delay t)
-(defadvice linum-schedule (around my-linum-schedule () activate)
-  (run-with-idle-timer 0.2 nil #'linum-update-current))
-
 (column-number-mode t) ;何文字目かを表示(モードライン)
 (line-number-mode t) ;行の表示(モードライン)
-(scroll-bar-mode -1) ;スクロールバーを消す
+(scroll-bar-mode 0) ;スクロールバーを消す
 (icomplete-mode t) ;バッファー移動時にミニウィンドウに候補を表示
 (set-frame-parameter nil 'alpha 85)
 
