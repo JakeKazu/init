@@ -14,7 +14,7 @@
 (require 'use-package)
 
 ;;パッケージごとの起動時間チェック
-(require 'set-initchart)
+;(require 'set-initchart)
 
 ;;色についてのセクション
 (require 'set-color)
