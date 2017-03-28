@@ -10,6 +10,8 @@
   "set frame parameter 'alpha"
   (interactive "nAlpha: ")
   (set-frame-parameter nil 'alpha (cons alpha-num '(85))))
+;; 初期透明化
+(set-frame-parameter nil 'alpha 85) ;透明度
 
 ;;
 ;; whitespace

@@ -36,6 +36,7 @@
 ;; フルスクリーン化
 (global-set-key (kbd "<M-return>") 'toggle-frame-fullscreen)
 
+
 ;; 最近使ったファイルの表示数
 (setq recentf-max-menu-items 10)
 ;; 最近開いたファイルの保存数を増やす
