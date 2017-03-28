@@ -2,7 +2,7 @@
 
 (require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
-;;(global-flycheck-mode)
+(global-flycheck-mode)
 
 ;;キーバインド
 (define-key global-map (kbd "\C-cn") 'flycheck-next-error)
@@ -33,6 +33,7 @@
 ;;      (when (locate-library "flycheck-irony")
 ;;        (flycheck-irony-setup))))
 
+;;sudo gem install rubocop ruby-lint
 ;;ruby rubocop
 (require 'rubocop)
 (add-hook 'ruby-mode-hook 'rubocop-mode)
