@@ -13,6 +13,9 @@
 ;; 初期透明化
 (set-frame-parameter nil 'alpha 85) ;透明度
 
+;;行末の空白行削除
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
 ;;
 ;; whitespace
 ;;
