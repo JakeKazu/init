@@ -2,7 +2,7 @@
 
 ;; ;;;;;;自動補完 company;;;;;;
 (require 'company)
-(global-company-mode) ; 全バッファで有効にする 
+(global-company-mode) ; 全バッファで有効にする
 (setq company-idle-delay 0) ; デフォルトは0.5 nilにするとcompany無効
 (setq company-minimum-prefix-length 2) ; デフォルトは4
 (setq company-selection-wrap-around t) ; 候補の一番下でさらに下に行こうとすると一番上に戻る
@@ -70,49 +70,49 @@
 (require 'yasnippet)
 (yas-global-mode)
 
-;;c/c++
-(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode)) ;;ヘッダファイルをc++-modeに
-(add-hook 'c-mode-hook 'irony-mode)
-(add-hook 'c++-mode-hook 'irony-mode)
-(add-hook 'objc-mode-hook 'irony-mode)
-(add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
-(add-to-list 'company-backends 'company-irony) ; backend追加
+;; ;;c/c++
+;; (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode)) ;;ヘッダファイルをc++-modeに
+;; (add-hook 'c-mode-hook 'irony-mode)
+;; (add-hook 'c++-mode-hook 'irony-mode)
+;; (add-hook 'objc-mode-hook 'irony-mode)
+;; (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+;; (add-to-list 'company-backends 'company-irony) ; backend追加
 
-;; 連想リストの中身を文字列のリストに変更せず、変数そのままの構造を利用。
-;; 複数のコンパイルオプションはスペースで区切る
-(setq irony-lang-compile-option-alist
-      (quote ((c++-mode . "c++ -std=co+11 -lstdc++")
-              (c-mode . "c")
-              (objc-mode . "objective-c"))))
-;; アドバイスによって関数を再定義。
-;; split-string によって文字列をスペース区切りでリストに変換
-;; (24.4以降 新アドバイス使用)
-(defun ad-irony--lang-compile-option ()
-  (defvar irony-lang-compile-option-alist)
-  (let ((it (cdr-safe (assq major-mode irony-lang-compile-option-alist))))
-    (when it (append '("-x") (split-string it "\s")))))
-(advice-add 'irony--lang-compile-option :override #'ad-irony--lang-compile-option)
-;; ;; (24.3以前 旧アドバイス使用)
-;; (defadvice irony--lang-compile-option (around ad-irony--lang-compile-option activate)
+;; ;; 連想リストの中身を文字列のリストに変更せず、変数そのままの構造を利用。
+;; ;; 複数のコンパイルオプションはスペースで区切る
+;; (setq irony-lang-compile-option-alist
+;;       (quote ((c++-mode . "c++ -std=co+11 -lstdc++")
+;;               (c-mode . "c")
+;;               (objc-mode . "objective-c"))))
+;; ;; アドバイスによって関数を再定義。
+;; ;; split-string によって文字列をスペース区切りでリストに変換
+;; ;; (24.4以降 新アドバイス使用)
+;; (defun ad-irony--lang-compile-option ()
 ;;   (defvar irony-lang-compile-option-alist)
 ;;   (let ((it (cdr-safe (assq major-mode irony-lang-compile-option-alist))))
 ;;     (when it (append '("-x") (split-string it "\s")))))
+;; (advice-add 'irony--lang-compile-option :override #'ad-irony--lang-compile-option)
+;; ;; ;; (24.3以前 旧アドバイス使用)
+;; ;; (defadvice irony--lang-compile-option (around ad-irony--lang-compile-option activate)
+;; ;;   (defvar irony-lang-compile-option-alist)
+;; ;;   (let ((it (cdr-safe (assq major-mode irony-lang-compile-option-alist))))
+;; ;;     (when it (append '("-x") (split-string it "\s")))))
 
-;; 使い方
-;; 初回実行時のみ，
-;; M-x irony-install-server RET
-;; でirony-serverをインストールする．但し,cmakeが必要
-;; irony-serverがインストールされる場所はirony-server-install-prefixで指定できる．
-;; あとは適当にprefixを打てばcompanyが補完候補を表示してくれるはず
+;; ;; 使い方
+;; ;; 初回実行時のみ，
+;; ;; M-x irony-install-server RET
+;; ;; でirony-serverをインストールする．但し,cmakeが必要
+;; ;; irony-serverがインストールされる場所はirony-server-install-prefixで指定できる．
+;; ;; あとは適当にprefixを打てばcompanyが補完候補を表示してくれるはず
 
-;; cmakeの設定が終わっていないと面倒 参照:http://qiita.com/alpha22jp/items/90f7f2ad4f8b1fa089f4
+;; ;; cmakeの設定が終わっていないと面倒 参照:http://qiita.com/alpha22jp/items/90f7f2ad4f8b1fa089f4
 
-;;python company-jedi
-(require 'jedi-core)
-(setq jedi:complete-on-dot t)
-;(setq jedi:use-shortcuts t)
-(add-hook 'python-mode-hook 'jedi:setup)
-(add-to-list 'company-backends 'company-jedi) ; backendに追加
+;; ;;python company-jedi
+;; (require 'jedi-core)
+;; (setq jedi:complete-on-dot t)
+;; ;(setq jedi:use-shortcuts t)
+;; (add-hook 'python-mode-hook 'jedi:setup)
+;; (add-to-list 'company-backends 'company-jedi) ; backendに追加
 ;; 使い方
 ;; pip install jedi epc
 ;; 初回実行時のみ，

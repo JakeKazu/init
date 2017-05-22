@@ -14,7 +14,15 @@
 (require 'use-package)
 
 ;;パッケージごとの起動時間チェック
-(require 'set-initchart)
+;(require 'set-initchart)
+
+;; gnuplot-mode
+(require 'gnuplot-mode)
+;; specify the gnuplot executable (if other than /usr/bin/gnuplot)
+(setq gnuplot-program "/sw/bin/gnuplot")
+;; automatically open files ending with .gp or .gnuplot in gnuplot mode
+(setq auto-mode-alist
+(append '(("\\.\\(gp\\|gnuplot\\)$" . gnuplot-mode)) auto-mode-alist))
 
 ;;色についてのセクション
 (require 'set-color)
