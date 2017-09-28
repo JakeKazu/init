@@ -19,4 +19,7 @@
 (ruby-block-mode t)
 (setq ruby-block-highlight-toggle t)
 
+;; マジックコメントの自動挿入を解除  （ 例：# -*- coding: utf-8 -*- )
+(setq ruby-insert-encoding-magic-comment nil)
+
 ;;;;;;ruby-mode設定終わり;;;;;;
