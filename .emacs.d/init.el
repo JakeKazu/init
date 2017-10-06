@@ -65,6 +65,9 @@
 '(("php"    . "\\.phtml\\'")
   ("blade"  . "\\.blade\\.")))
 
+;; rjsx-mode
+(require 'rjsx-mode)
+
 ;;Latex
 ;;yatex
 (require 'yatex)
