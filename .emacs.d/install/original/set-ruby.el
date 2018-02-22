@@ -8,6 +8,9 @@
 (add-to-list 'auto-mode-alist '("\\.rb" . ruby-mode))  (add-to-list 'auto-mode-alist '("Capfile" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
 
+;; マジックコメント自動挿入なし
+(setq ruby-insert-encoding-magic-comment nil)
+
 ;;do end補完
 (require 'ruby-electric)
 (add-hook 'ruby-mode-hook '(lambda () (ruby-electric-mode t)))
@@ -18,8 +21,5 @@
 (require 'ruby-block)
 (ruby-block-mode t)
 (setq ruby-block-highlight-toggle t)
-
-;; マジックコメントの自動挿入を解除  （ 例：# -*- coding: utf-8 -*- )
-(setq ruby-insert-encoding-magic-comment nil)
 
 ;;;;;;ruby-mode設定終わり;;;;;;
