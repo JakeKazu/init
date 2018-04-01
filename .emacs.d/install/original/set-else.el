@@ -1,5 +1,8 @@
 (provide 'set-else)
 
+;; 自動読み込み
+(global-auto-revert-mode 1)
+
 ;;yes/no を y/n に
 (fset 'yes-or-no-p 'y-or-n-p)
 
